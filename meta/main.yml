@@ -1,0 +1,28 @@
+galaxy_info:
+  role_name: gitlab_runner
+  author: Sam Doran
+  description: Install GitLab runner for use with GitLab CI
+  license: Apache 2.0
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
+
+  galaxy_tags:
+    - testing
+    - ci
+    - gitlab
+    - runner

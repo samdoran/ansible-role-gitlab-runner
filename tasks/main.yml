@@ -1,0 +1,8 @@
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_facts.os_family }}.yml"
+  tags:
+    - gitlab_runner
+
+- include_tasks: "install-{{ ansible_facts.os_family }}.yml"
+  tags:
+    - gitlab_runner

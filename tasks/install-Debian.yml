@@ -1,0 +1,28 @@
+- name: DEBIAN | Install pre requisite packages
+  apt:
+    name: "{{ gitlab_runner_pre_packages }}"
+    state: latest
+    update_cache: yes
+  tags:
+    - gitlab_runner
+
+- name: DEBIAN | Add GPG key
+  apt_key:
+    url: "{{ gitlab_runner_gpg_key_url }}"
+  tags:
+    - gitlab_runner
+
+- name: DEBIAN | Add repositories
+  apt_repository:
+    filename: runner_gitlab-runner
+    repo: "{{ item }}"
+  loop: "{{ gitlab_runner_repos }}"
+  tags:
+    - gitlab_runner
+
+- name: DEBIAN | Install GitLab runner
+  apt:
+    name: "{{ gitlab_runner_packages }}"
+    state: latest
+  tags:
+    - gitlab_runner

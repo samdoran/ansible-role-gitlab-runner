@@ -1,0 +1,9 @@
+gitlab_runner_pre_packages:
+  - debian-archive-keyring
+  - apt-transport-https
+
+gitlab_runner_repos:
+  - deb https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_facts.distribution | lower }}/ {{ ansible_facts.distribution_release }} main
+  - deb-src https://packages.gitlab.com/runner/gitlab-runner/{{ ansible_facts.distribution | lower }}/ {{ ansible_facts.distribution_release }} main
+
+gitlab_runner_gpg_key_url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
