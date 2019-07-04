@@ -21,6 +21,11 @@ galaxy_info:
         - stretch
         - jessie
 
+    - name: Fedora
+      versions:
+        - 28
+        - 29
+
   galaxy_tags:
     - testing
     - ci
