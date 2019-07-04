@@ -1,4 +1,4 @@
-- name: DEBIAN | Install pre requisite packages
+- name: DEBIAN | Install prerequisite packages
   apt:
     name: "{{ gitlab_runner_pre_packages }}"
     state: latest

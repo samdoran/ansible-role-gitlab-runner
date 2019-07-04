@@ -19,3 +19,7 @@
       assert:
         that:
           - "'Version' in result.stdout"
+
+    - name: Show GitLab runner version information
+      debug:
+        msg: "{{ result.stdout }}"

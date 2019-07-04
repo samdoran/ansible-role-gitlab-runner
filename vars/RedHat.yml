@@ -1,3 +1,13 @@
-gitlab_runner_pre_packages: []
-gitlab_runner_repos: []
-gitlab_runner_gpg_key_url: ''
+gitlab_runner_repos:
+  - name: gitlab-runner
+    description: gitlab-runner
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/{{ ansible_facts.distribution_major_version }}/$basearch
+    gpgkey: &gpgkey
+      - https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+      - https://packages.gitlab.com/runner/gitlab-runner/gpgkey/runner-gitlab-runner-366915F31B487241.pub.gpg
+
+  - name: gitlab-runner-source
+    description: gitlab-runner-source
+    baseurl: https://packages.gitlab.com/runner/gitlab-runner/el/{{ ansible_facts.distribution_major_version }}/SRPMS
+    gpgkey:
+      *gpgkey

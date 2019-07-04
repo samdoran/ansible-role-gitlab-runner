@@ -1,2 +1,20 @@
-- name: RHEL |
-  command: /bin/false
+- name: RHEL | Add repositories
+  yum_repository:
+    file: gitlab-runner
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    gpgcheck: yes
+    gpgkey: "{{ item.gpgkey }}"
+    repo_gpgcheck: yes
+    metadata_expire: '300'
+  loop: "{{ gitlab_runner_repos }}"
+  tags:
+    - gitlab_runner
+
+- name: RHEL | Install GitLab runner
+  yum:
+    name: "{{ gitlab_runner_packages }}"
+    state: latest
+  tags:
+    - gitlab_runner
